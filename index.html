@@ -1005,16 +1005,6 @@ function showProductPage(code) {
           <h4>Spesifikasi</h4>
           ${specsHtml}
         </div>
-        <div class="pd-card" style="background:var(--primary-light);border-color:var(--primary)">
-          <h4 style="color:var(--primary-dark)">Cara Download</h4>
-          <p style="font-size:13px;color:var(--text2);line-height:1.65">
-            ${p.downloadBtn
-              ? `Download tombol di atas, lalu install. Butuh <strong>TeknoMedis Hub</strong> untuk aktivasi lisensi.`
-              : `Produk SaaS — langsung daftar trial tanpa install di PC.`
-            }
-          </p>
-          ${p.downloadBtn ? `<button onclick="showPage('home');setTimeout(()=>smoothTo('cara-pakai'),100)" style="margin-top:12px;font-size:12.5px;font-weight:600;color:var(--primary);background:none;border:none;cursor:pointer;font-family:inherit;padding:0">Lihat panduan 4 langkah →</button>` : ''}
-        </div>
       </div>
     </div>
 
