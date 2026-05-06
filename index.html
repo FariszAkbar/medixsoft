@@ -127,6 +127,10 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.06)}
 .pd-spec-row:last-child{border-bottom:none}
 .pd-spec-label{color:var(--text2)}
 .pd-spec-val{font-weight:600;color:var(--dark)}
+.pd-action-note{font-size:12px;color:var(--text3);margin-top:6px;line-height:1.5}
+.pd-actions .btn-primary{width:100%}
+.pd-action-links{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.pd-action-links .btn-secondary{width:100%}
 
 /* FITUR */
 .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -160,6 +164,19 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.06)}
 .info-box{margin-top:20px;padding:16px 20px;border-radius:12px;font-size:13px;line-height:1.65}
 .info-yellow{background:#fffbeb;border:1.5px solid #fde68a;color:#78350f}
 .info-blue{background:#eff6ff;border:1.5px solid #bfdbfe;color:#1e3a8a}
+
+/* PLAY STORE */
+.playstore-section{background:#fff}
+.app-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.app-card{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:14px;box-shadow:0 8px 24px rgba(15,23,42,.04);transition:all .2s;min-height:100%}
+.app-card:hover{border-color:var(--primary);box-shadow:0 12px 32px rgba(8,145,178,.08);transform:translateY(-2px)}
+.app-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:25px;color:#fff;overflow:hidden}
+.app-title{font-size:17px;font-weight:800;color:var(--dark)}
+.app-subtitle{font-size:12px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.5px}
+.app-desc{font-size:13px;color:var(--text2);line-height:1.6;flex:1}
+.store-btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:11px 14px;border-radius:10px;background:#0f172a;color:#fff;font-weight:800;font-size:13px;text-align:center;border:0;cursor:pointer;font-family:inherit}
+.store-btn.pending{background:var(--bg3);color:var(--text2);cursor:not-allowed;border:1px dashed #cbd5e1}
+.store-note{font-size:11.5px;color:var(--text3);line-height:1.5}
 
 /* PRICING */
 .pricing-bg{background:var(--bg2)}
@@ -249,6 +266,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
   .product-price-tabs{grid-template-columns:repeat(2,1fr)}
   .affiliate-grid{grid-template-columns:1fr}
   .affiliate-stat-grid{grid-template-columns:repeat(2,1fr)}
+  .app-grid{grid-template-columns:1fr}
   .nav-links{display:none}
 }
 @media(max-width:600px){
@@ -281,7 +299,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
     <div class="nav-links">
       <button onclick="showPage('home');smoothTo('produk')">Produk</button>
       <button onclick="showPage('home');smoothTo('fitur')">Fitur</button>
-      <button onclick="showPage('home');smoothTo('cara-pakai')">Download</button>
+      <button onclick="showPage('home');smoothTo('playstore')">Play Store</button>
       <button onclick="showPage('home');smoothTo('produk')">Produk &amp; Harga</button>
       <button onclick="showPage('home');smoothTo('affiliate')">Affiliate</button>
       <button onclick="showPage('home');smoothTo('kontak')" class="nav-cta">Hubungi Kami</button>
@@ -305,7 +323,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
         <p>Software on-premise untuk manajemen pengadaan, casemix, dan digitalisasi proses rumah sakit & klinik. <strong style="color:#22d3ee">Data pasien & transaksi tetap di PC RS/Klinik Anda</strong> — kami tidak menyimpan atau mengakses data Anda.</p>
         <div class="hero-btns">
           <button class="btn btn-white" onclick="smoothTo('produk')">Lihat Produk</button>
-          <button class="btn btn-ghost" onclick="smoothTo('cara-pakai')">⬇ Download Hub</button>
+          <button class="btn btn-ghost" onclick="smoothTo('playstore')">Aplikasi Mobile</button>
           <button class="btn btn-ghost" onclick="smoothTo('kontak')">Konsultasi Gratis</button>
         </div>
         <div class="hero-trust">
@@ -358,7 +376,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
     <div class="section-head">
       <div class="section-tag">Produk Kami</div>
       <h2 class="section-title">Software untuk Kebutuhan Anda</h2>
-      <p class="section-desc">Klik produk untuk melihat detail fitur, spesifikasi, dan opsi download</p>
+      <p class="section-desc">Klik produk untuk melihat detail fitur, spesifikasi, dan paket berlangganan</p>
     </div>
     <div class="product-grid">
 
@@ -418,7 +436,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
           <span class="pc-feature-tag">Absensi selfie + GPS</span>
           <span class="pc-feature-tag">Payroll PPh21</span>
           <span class="pc-feature-tag">Trial 20 hari</span>
-          <span class="pc-feature-tag">APK Android</span>
+          <span class="pc-feature-tag">Play Store ready</span>
         </div>
         <div class="pc-footer">
           <span class="pc-cta" style="color:var(--indigo)">Lihat Detail →</span>
@@ -577,6 +595,55 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
 </section>
 
 
+<!-- PLAY STORE -->
+<section id="playstore" class="playstore-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">Play Store</div>
+      <h2 class="section-title">Aplikasi Mobile TeknoMedis</h2>
+      <p class="section-desc">Wadah resmi download aplikasi Android TeknoMedis. Link Play Store akan dipasang setelah rilis publik siap.</p>
+    </div>
+
+    <div class="app-grid">
+      <div class="app-card">
+        <div class="app-icon" style="background:#fff;border:1px solid var(--border);padding:6px">
+          <img src="/assets/hris-icon.png" alt="HRIS" style="width:100%;height:100%;object-fit:contain">
+        </div>
+        <div>
+          <div class="app-subtitle">HR & Payroll</div>
+          <div class="app-title">TeknoMedis HRIS</div>
+        </div>
+        <div class="app-desc">Aplikasi mobile karyawan untuk absensi GPS, pengajuan cuti, reimbursement, approval, dan aktivitas HR klinik.</div>
+        <button class="store-btn pending" type="button" disabled>Google Play segera</button>
+        <div class="store-note">Nanti tombol ini diarahkan ke halaman resmi Play Store HRIS.</div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-icon" style="background:linear-gradient(135deg,#0d7a8a,#0891b2)">P</div>
+        <div>
+          <div class="app-subtitle">Pasien</div>
+          <div class="app-title">TekMe Pasien</div>
+        </div>
+        <div class="app-desc">Aplikasi pasien untuk cari klinik, booking layanan, chat, notifikasi jadwal, dan akses layanan TeknoMedis Care.</div>
+        <button class="store-btn pending" type="button" disabled>Google Play segera</button>
+        <div class="store-note">Disiapkan untuk link Play Store TekMe Pasien saat aplikasi sudah publish.</div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-icon" style="background:linear-gradient(135deg,#132d46,#6366f1)">D</div>
+        <div>
+          <div class="app-subtitle">Dokter</div>
+          <div class="app-title">TekMe Dokter</div>
+        </div>
+        <div class="app-desc">Aplikasi dokter untuk melihat jadwal, menerima notifikasi pasien, mengelola sesi layanan, dan komunikasi klinik.</div>
+        <button class="store-btn pending" type="button" disabled>Google Play segera</button>
+        <div class="store-note">Disiapkan untuk link Play Store TekMe Dokter saat aplikasi sudah publish.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- AFFILIATE -->
 <section id="affiliate" style="background:#f8fafc">
   <div class="container">
@@ -699,7 +766,7 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
       <p>Konsultasi gratis — pemilihan paket, instalasi, dan training</p>
       <div class="cta-btns" style="margin-top:20px">
         <a href="https://wa.me/6283189038399?text=Halo%20TeknoMedis%2C%20saya%20tertarik%20dengan%20produk%20Anda" data-wa-link target="_blank" class="btn-wa">WhatsApp Kami</a>
-        <button onclick="showPage('home');setTimeout(()=>smoothTo('harga'),100)" class="btn-email">Lihat Harga</button>
+        <button onclick="document.getElementById('pd-pricing-mount')?.scrollIntoView({behavior:'smooth'})" class="btn-email">Lihat Paket</button>
       </div>
     </div>
   </section>
@@ -716,7 +783,8 @@ footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:36px 0}
       <div class="footer-links">
         <button onclick="showPage('home');smoothTo('produk')">Produk</button>
         <button onclick="showPage('home');smoothTo('fitur')">Fitur</button>
-        <button onclick="showPage('home');smoothTo('harga')">Harga</button>
+        <button onclick="showPage('home');smoothTo('playstore')">Play Store</button>
+        <button onclick="showPage('home');smoothTo('produk')">Produk &amp; Harga</button>
         <button onclick="showPage('home');smoothTo('kontak')">Kontak</button>
       </div>
     </div>
@@ -791,8 +859,6 @@ const PRODUCTS = {
       {label:'Internet', val:'Tidak diperlukan'},
       {label:'Update', val:'Auto via Hub'},
     ],
-    downloadBtn: true,
-    downloadLabel: '⬇ Download MedOps Pro',
     priceNote: 'Lihat paket di bawah',
     color: '#0891b2',
   },
@@ -821,19 +887,14 @@ const PRODUCTS = {
     specs: [
       {label:'Tipe', val:'SaaS Cloud'},
       {label:'Database', val:'Server TeknoMedis'},
-      {label:'Platform', val:'Web admin + 2 Android APK'},
+      {label:'Platform', val:'Web admin + aplikasi mobile'},
       {label:'Mobile App', val:'Aplikasi Pasien + Aplikasi Dokter'},
       {label:'Internet', val:'Diperlukan'},
       {label:'Provision', val:'Auto 60 detik'},
     ],
-    downloadBtn: false,
-    extraActions: `
-      <a href="https://hub.teknomedis.com" target="_blank" class="btn-primary" style="background:#0d7a8a">🌐 Beli via Hub</a>
-      <div style="font-size:12px;color:var(--text3);margin-top:6px;line-height:1.5">
-        ☁️ TeknoMedis Care SaaS — beli langsung di Hub web. Tenant otomatis aktif + email berisi link login (1 klik).
-      </div>
-      <a href="https://care.teknomedis.com" target="_blank" class="btn-secondary" style="margin-top:8px;display:inline-block">🔐 Login Admin Care</a>
-    `,
+    loginUrl: 'https://care.teknomedis.com',
+    loginLabel: 'Login Admin Care',
+    appTarget: 'playstore',
     priceNote: 'Trial 20 hari gratis · Lihat detail paket di Hub',
     color: '#0d7a8a',
   },
@@ -860,20 +921,12 @@ const PRODUCTS = {
     specs: [
       {label:'Tipe', val:'SaaS Cloud'},
       {label:'Database', val:'Server TeknoMedis'},
-      {label:'Platform', val:'Web + Android APK'},
+      {label:'Platform', val:'Web + aplikasi mobile'},
       {label:'Trial', val:'20 hari gratis'},
       {label:'Internet', val:'Diperlukan'},
-      {label:'APK', val:'Android v0.2.0'},
+      {label:'Mobile App', val:'Disiapkan di Play Store'},
     ],
-    downloadBtn: false,
-    extraActions: `
-      <a href="#download-hub" target="_blank" class="btn-primary" style="background:var(--indigo)">📥 Install Hub Sekarang</a>
-      <a href="/downloads/HRIS-v0.2.0-arm64.apk" download class="btn-secondary">📱 Download APK arm64 (23MB)</a>
-      <div style="font-size:12px;color:var(--text3);margin-top:8px;line-height:1.6">
-        HP lama? <a href="/downloads/HRIS-v0.2.0-armv7.apk" download style="color:var(--indigo)">armv7 (21MB)</a> ·
-        <a href="/downloads/HRIS-v0.2.0.apk" download style="color:var(--indigo)">Universal (58MB)</a>
-      </div>
-    `,
+    appTarget: 'playstore',
     priceNote: 'Trial 20 hari gratis',
     color: '#6366f1',
   },
@@ -905,8 +958,6 @@ const PRODUCTS = {
       {label:'Internet', val:'Tidak diperlukan'},
       {label:'Update', val:'Auto via Hub'},
     ],
-    downloadBtn: true,
-    downloadLabel: '⬇ Download CaseMix Pro',
     priceNote: 'Lihat paket di bawah',
     color: '#f59e0b',
   },
@@ -938,8 +989,6 @@ const PRODUCTS = {
       {label:'Internet', val:'Tidak diperlukan'},
       {label:'Update', val:'Auto via Hub'},
     ],
-    downloadBtn: true,
-    downloadLabel: '⬇ Download Kalibrasi Pro',
     priceNote: 'Lihat paket di bawah',
     color: '#06b6d4',
   },
@@ -961,24 +1010,24 @@ function showProductPage(code) {
     `<div class="pd-spec-row"><span class="pd-spec-label">${s.label}</span><span class="pd-spec-val">${s.val}</span></div>`
   ).join('');
 
-  let actionsHtml = '';
-  if (p.extraActions) {
-    actionsHtml = p.extraActions;
-  } else if (p.downloadBtn) {
-    // Single funnel: semua produk dibeli via Hub web (hub.teknomedis.com).
-    // Klinik gak perlu install Hub — buka di browser, beli, dapat installer
-    // per-produk via email + license key.
-    actionsHtml = `
-      <a href="https://hub.teknomedis.com" target="_blank" class="btn-primary">
-        🌐 Beli via Hub TeknoMedis
-      </a>
-      <div style="font-size:12px;color:var(--text3);margin-top:6px;line-height:1.5">
-        💡 ${p.name} bisa dibeli langsung di Hub TeknoMedis (web).
-        Pilih ${p.name} → bayar → email berisi license key + link installer.
-      </div>
-      <button onclick="showPage('home');setTimeout(()=>smoothTo('cara-pakai'),100)" class="btn-secondary" style="margin-top:8px">Panduan 3 Langkah</button>
-    `;
+  const secondaryActions = [];
+  if (p.loginUrl) {
+    secondaryActions.push(`<a href="${p.loginUrl}" target="_blank" class="btn-secondary">${p.loginLabel || 'Login Aplikasi'}</a>`);
   }
+  if (p.appTarget) {
+    secondaryActions.push(`<button onclick="showPage('home');setTimeout(()=>smoothTo('${p.appTarget}'),100)" class="btn-secondary">Lihat Aplikasi Mobile</button>`);
+  }
+  secondaryActions.push(`<button onclick="showPage('home');setTimeout(()=>smoothTo('cara-pakai'),100)" class="btn-secondary">Panduan 3 Langkah</button>`);
+
+  const actionsHtml = `
+    <a href="https://hub.teknomedis.com?product=${encodeURIComponent(code)}" target="_blank" class="btn-primary" style="background:${p.color}">
+      🌐 Beli via Hub TeknoMedis
+    </a>
+    <div class="pd-action-note">
+      Pilih ${p.name} di Hub → pilih paket → bayar → akses/license dikirim otomatis sesuai tipe produk.
+    </div>
+    <div class="pd-action-links">${secondaryActions.join('')}</div>
+  `;
 
   // Pricing inline diagregate di section pd-pricing (di-render dibawah).
   // Tidak ada lagi button "Lihat Harga" karena udah inline di detail page.
@@ -1018,7 +1067,6 @@ function showProductPage(code) {
 
   showPage('product');
   updateAffiliateHubLinks(document.getElementById('product-detail-content'));
-  loadProductDownload(code);
   loadProductPricing(code);  // dynamic fetch dari license-server (single source)
 }
 
@@ -1075,6 +1123,7 @@ async function loadProductPricing(code) {
     grid.innerHTML = pkgs.map((p, i) => {
       const popular = i === (popularIdx >= 0 ? popularIdx : Math.min(1, pkgs.length - 1));
       const userLabel = p.users >= 999 ? `Unlimited ${unitLabel}` : `Maks ${p.users} ${unitLabel}`;
+      const hubUrl = withAffiliateRef(`https://hub.teknomedis.com?product=${encodeURIComponent(code)}&plan=${encodeURIComponent(p.plan || '')}`);
       return `
         <div class="price-card${popular ? ' popular' : ''}">
           ${popular ? '<div class="popular-badge">POPULER</div>' : ''}
@@ -1082,7 +1131,7 @@ async function loadProductPricing(code) {
           <div class="price-desc">${userLabel}</div>
           <div class="price-amount">${_formatPrice(p.price)}</div>
           <div class="price-period">${p.days >= 365 ? 'per tahun' : `per ${p.days} hari`}</div>
-          <a href="#kontak" onclick="smoothTo('kontak')" class="btn-price ${popular ? 'btn-price-primary' : 'btn-price-outline'}">Pilih</a>
+          <a href="${hubUrl}" target="_blank" class="btn-price ${popular ? 'btn-price-primary' : 'btn-price-outline'}">Beli via Hub</a>
         </div>
       `;
     }).join('');
@@ -1104,6 +1153,7 @@ window.addEventListener('scroll', () => {
 // Load HRIS plans from HRIS API directly
 async function loadHrisPlans() {
   const grid = document.getElementById('hris-plans-grid');
+  if (!grid) return;
   try {
     const res = await fetch('https://hris.teknomedis.com/api/signup/plans');
     const data = await res.json();
@@ -1123,6 +1173,7 @@ async function loadHrisPlans() {
     grid.innerHTML = plans.map((p, i) => {
       const popular = i === popularIdx && plans.length > 2;
       const unlimited = p.employee_limit >= 999;
+      const hubUrl = withAffiliateRef(`https://hub.teknomedis.com?product=hris&plan=${encodeURIComponent(p.code || '')}`);
       return `
         <div class="price-card${popular ? ' popular' : ''}">
           ${popular ? '<div class="popular-badge">POPULER</div>' : ''}
@@ -1138,7 +1189,7 @@ async function loadHrisPlans() {
             <li>${unlimited ? 'Unlimited karyawan + Priority Support' : 'Max ' + p.employee_limit + ' karyawan aktif'}</li>
             <li>Trial 20 hari gratis</li>
           </ul>
-          <a href="${withAffiliateRef('https://hub.teknomedis.com')}" target="_blank" class="btn-price ${popular ? 'btn-price-primary' : 'btn-price-outline'}">Buka Hub</a>
+          <a href="${hubUrl}" target="_blank" class="btn-price ${popular ? 'btn-price-primary' : 'btn-price-outline'}">Beli via Hub</a>
         </div>
       `;
     }).join('');
@@ -1150,35 +1201,12 @@ async function loadHrisPlans() {
         <div style="font-size:24px;margin-bottom:8px">📋</div>
         <div style="font-weight:600;margin-bottom:4px">Daftar paket sedang dimuat...</div>
         <div style="font-size:13px">Untuk detail harga + paket terbaru, silakan cek langsung di
-          <a href="#download-hub" style="color:var(--accent2);text-decoration:none;font-weight:600">Hub TeknoMedis</a> setelah install,
+          <a href="https://hub.teknomedis.com" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">Hub TeknoMedis</a>,
           atau hubungi <a href="https://wa.me/6283189038399" data-wa-link target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">tim sales</a>.
         </div>
       </div>
     `;
   }
-}
-
-// Load dynamic download links
-async function loadProductDownload(code) {
-  try {
-    const res = await fetch('/downloads.json');
-    const data = await res.json();
-    const prods = data.products || {};
-    const info = prods[code];
-    const btn = document.getElementById('pd-dl-btn');
-    if (btn) {
-      if (info) {
-        btn.href = info.url;
-        btn.textContent = `⬇ Download v${info.version} (${info.size_mb}MB)`;
-      } else {
-        btn.textContent = '⬇ Belum tersedia';
-        btn.style.opacity = '0.5';
-        btn.style.pointerEvents = 'none';
-      }
-    }
-    // Hub button is now a link ke hub.teknomedis.com (web), bukan download.
-    // Tidak perlu auto-fill version dari /api/products.
-  } catch (e) {}
 }
 
 loadHrisPlans();
